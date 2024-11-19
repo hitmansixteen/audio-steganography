@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import *
 
+from Algorithms.LSB import LSB  
+
 root = Tk()
 
 class Window(Frame):
@@ -94,7 +96,7 @@ class Window(Frame):
     def encode(self):
 
         if self.optionsVar.get() == "Least Significant Bit":
-            pass
+            algo = LSB()
         elif self.optionsVar.get() == "Phase Coding":
             pass
         elif self.optionsVar.get() == "Spread Spectrum":
@@ -103,11 +105,15 @@ class Window(Frame):
             pass
         elif self.optionsVar.get() == "Parity Coding":
             pass
+
+        result = algo.encode(self.fileSelected, self.entryText.get())
+
+        self.encodedLocationVar.set("Encoded File Location: " + result)
 
     def decode(self):
 
         if self.optionsVar.get() == "Least Significant Bit":
-            pass
+            algo = LSB()
         elif self.optionsVar.get() == "Phase Coding":
             pass
         elif self.optionsVar.get() == "Spread Spectrum":
@@ -116,6 +122,9 @@ class Window(Frame):
             pass
         elif self.optionsVar.get() == "Parity Coding":
             pass
+
+        result = algo.decode(self.fileSelectedDecode)
+        self.decodeStringVar.set(result)
 
         
 
