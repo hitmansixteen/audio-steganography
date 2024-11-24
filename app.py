@@ -3,6 +3,8 @@ from tkinter import filedialog
 from tkinter.ttk import *
 
 from Algorithms.LSB import LSB  
+from Algorithms.PhaseEncoding import PhaseCoding  
+from Algorithms.DSSS.DSSS import DSSS
 
 root = Tk()
 
@@ -116,12 +118,10 @@ class Window(Frame):
         elif self.decodeOptionsVar.get() == "Phase Coding":
             algo = PhaseCoding()
         elif self.decodeOptionsVar.get() == "Spread Spectrum":
+            algo = DSSS()
+        elif self.decodeOptionsVar.get() == "Echo Hiding":
             pass
-        elif self.optionsVar.get() == "Spread Spectrum":
-            pass
-        elif self.optionsVar.get() == "Echo Hiding":
-            pass
-        elif self.optionsVar.get() == "Parity Coding":
+        elif self.decodeOptionsVar.get() == "Parity Coding":
             pass
 
         result = algo.decode(self.fileSelectedDecode)

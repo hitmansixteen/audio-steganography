@@ -3,10 +3,7 @@ import os.path
 import numpy as np
 from scipy.io import wavfile
 
-from Algorithms.algoClass import AlgoClass
-
-
-class PhaseCoding(AlgoClass):
+class PhaseCoding():
     def encode(self, audioLocation, stringToEncode) -> str:
 
         self.convertToByteArray(audioLocation)
