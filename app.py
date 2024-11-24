@@ -2,7 +2,8 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import *
 
-from Algorithms.LSB import LSB  
+from Algorithms.LSB import LSB 
+from Algorithms.PhaseEncoding import PhaseCoding 
 
 root = Tk()
 
@@ -77,7 +78,7 @@ class Window(Frame):
         self.decodeButton.place(x=500, y=200)
 
         self.decodeStringVar = StringVar()
-        self.decodeStringLabel = Label(root, textvariable=self.decodeStringVar, font=(None,40))
+        self.decodeStringLabel = Label(root, textvariable=self.decodeStringVar, font=(None,30))
         self.decodeStringLabel.place(x=500, y=350) 
 
     def clientExit(self):
@@ -98,7 +99,7 @@ class Window(Frame):
         if self.optionsVar.get() == "Least Significant Bit":
             algo = LSB()
         elif self.optionsVar.get() == "Phase Coding":
-            pass
+            algo = PhaseCoding()
         elif self.optionsVar.get() == "Spread Spectrum":
             pass
         elif self.optionsVar.get() == "Echo Hiding":
@@ -111,16 +112,15 @@ class Window(Frame):
         self.encodedLocationVar.set("Encoded File Location: " + result)
 
     def decode(self):
-
-        if self.optionsVar.get() == "Least Significant Bit":
+        if self.decodeOptionsVar.get() == "Least Significant Bit":
             algo = LSB()
-        elif self.optionsVar.get() == "Phase Coding":
+        elif self.decodeOptionsVar.get() == "Phase Coding":
+            algo = PhaseCoding()
+        elif self.decodeOptionsVar.get() == "Spread Spectrum":
             pass
-        elif self.optionsVar.get() == "Spread Spectrum":
+        elif self.decodeOptionsVar.get() == "Echo Hiding":
             pass
-        elif self.optionsVar.get() == "Echo Hiding":
-            pass
-        elif self.optionsVar.get() == "Parity Coding":
+        elif self.decodeOptionsVar.get() == "Parity Coding":
             pass
 
         result = algo.decode(self.fileSelectedDecode)
