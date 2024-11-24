@@ -4,6 +4,8 @@ from tkinter.ttk import *
 
 from Algorithms.LSB import LSB  
 
+from Algorithms.DSSS.DSSS import DSSS
+
 root = Tk()
 
 class Window(Frame):
@@ -100,7 +102,7 @@ class Window(Frame):
         elif self.optionsVar.get() == "Phase Coding":
             pass
         elif self.optionsVar.get() == "Spread Spectrum":
-            pass
+            algo = DSSS()
         elif self.optionsVar.get() == "Echo Hiding":
             pass
         elif self.optionsVar.get() == "Parity Coding":
@@ -117,7 +119,7 @@ class Window(Frame):
         elif self.optionsVar.get() == "Phase Coding":
             pass
         elif self.optionsVar.get() == "Spread Spectrum":
-            pass
+            algo = DSSS()
         elif self.optionsVar.get() == "Echo Hiding":
             pass
         elif self.optionsVar.get() == "Parity Coding":
