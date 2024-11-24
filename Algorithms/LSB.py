@@ -1,9 +1,7 @@
 import os.path
 import wave
 
-from Algorithms.algoClass import AlgoClass
-
-class LSB(AlgoClass):
+class LSB():
 
     def encode(self, audioLocation, stringToEncode):
         audioArray = self.convertToByteArray(audioLocation)
