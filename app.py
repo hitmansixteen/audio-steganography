@@ -5,6 +5,7 @@ from tkinter.ttk import *
 from Algorithms.LSB import LSB  
 from Algorithms.PhaseEncoding import PhaseCoding  
 from Algorithms.DSSS.DSSS import DSSS
+from Algorithms.EchoHiding import EchoHiding
 
 root = Tk()
 
@@ -104,7 +105,7 @@ class Window(Frame):
         elif self.optionsVar.get() == "Spread Spectrum":
             algo = DSSS()
         elif self.optionsVar.get() == "Echo Hiding":
-            pass
+            algo = EchoHiding()
         elif self.optionsVar.get() == "Parity Coding":
             pass
 
@@ -119,9 +120,12 @@ class Window(Frame):
             algo = PhaseCoding()
         elif self.decodeOptionsVar.get() == "Spread Spectrum":
             algo = DSSS()
-        elif self.decodeOptionsVar.get() == "Echo Hiding":
-            pass
-        elif self.decodeOptionsVar.get() == "Parity Coding":
+        elif self.optionsVar.get() == "Echo Hiding":
+            algo = EchoHiding()
+            result = algo.decode(self.fileSelectedDecode, self.fileSelected, len(self.entryText.get().encode('utf-8'))*8)
+            self.decodeStringVar.set(result)
+            return
+        elif self.optionsVar.get() == "Parity Coding":
             pass
 
         result = algo.decode(self.fileSelectedDecode)
