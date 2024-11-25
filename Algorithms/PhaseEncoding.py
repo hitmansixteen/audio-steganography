@@ -96,7 +96,6 @@ class PhaseCoding():
         self.audioData = self.audioData.copy()
 
     def saveFile(self, audioArray, location) -> str:
-        print (audioArray)
         dir = os.path.dirname(location)
         wavfile.write(dir + "/phase-coding.wav", self.rate, audioArray)
         return dir + "/phase-coding.wav"
