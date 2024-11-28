@@ -13,7 +13,7 @@ def calculate_snr(original_audioLocation, stego_audioLocation):
     noise_power = np.sum(noise ** 2)
 
     if noise_power == 0:
-        raise ValueError("Noise power is zero, SNR cannot be calculated.")
+        return "SNR is infinite: Perfect Signal!!!"
 
     snr = 10 * np.log10(signal_power / noise_power)
     return snr
