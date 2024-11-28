@@ -8,6 +8,9 @@ from Algorithms.DSSS.DSSS import DSSS
 from Algorithms.EchoHiding import EchoHiding
 from Algorithms.ParityCoding import ParityCoding
 
+from Testing.bitErrorRate import calculate_ber
+from Testing.signalNoiseRatio import calculate_snr
+
 root = Tk()
 
 class Window(Frame):
@@ -55,6 +58,13 @@ class Window(Frame):
         self.encodedLocationLabel = Label(root, textvariable=self.encodedLocationVar)
         self.encodedLocationLabel.place(x=10, y=280)
 
+        self.berVar = StringVar()
+        self.berLocationLabel = Label(root, textvariable=self.berVar)
+        self.berLocationLabel.place(x=10, y=320)
+
+        self.snrVar = StringVar()
+        self.snrLocationLabel = Label(root, textvariable=self.snrVar)
+        self.snrLocationLabel.place(x=10, y=340)
 
 
     def drawDecoding(self):
@@ -111,6 +121,9 @@ class Window(Frame):
             algo = ParityCoding()
 
         result = algo.encode(self.fileSelected, self.entryText.get())
+
+        self.berVar.set(f"Bit Error Rate: {calculate_ber(self.fileSelected, result)}")
+        self.snrVar.set(f"Signal to Noise Ratio: {calculate_snr(self.fileSelected, result)}")
 
         self.encodedLocationVar.set("Encoded File Location: " + result)
 
