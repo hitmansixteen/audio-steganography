@@ -122,10 +122,9 @@ class Window(Frame):
 
         result = algo.encode(self.fileSelected, self.entryText.get())
 
+        self.encodedLocationVar.set("Encoded File Location: " + result)
         self.berVar.set(f"Bit Error Rate: {calculate_ber(self.fileSelected, result)}")
         self.snrVar.set(f"Signal to Noise Ratio: {calculate_snr(self.fileSelected, result)}")
-
-        self.encodedLocationVar.set("Encoded File Location: " + result)
 
     def decode(self):
         if self.decodeOptionsVar.get() == "Least Significant Bit":
