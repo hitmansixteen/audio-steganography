@@ -51,7 +51,7 @@ class PhaseCoding():
         phases[0, blockMid - textLength: blockMid] = textInPi
         phases[0, blockMid + 1: blockMid + 1 + textLength] = -textInPi[::-1]
 
-        # re compute  the ophase amtrix
+        # re compute  the ophase matrix
         for i in range(1, len(phases)):
             phases[i] = phases[i - 1] + phaseDiffs[i - 1]
 
