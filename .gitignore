@@ -1,3 +1,4 @@
 *.wav
 /Algorithms/__pycache__
 /Algorithms/DSSS/__pycache__
+/Testing/__pycache__
